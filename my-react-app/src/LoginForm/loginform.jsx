@@ -13,13 +13,13 @@ const LoginForm = () => {
                     <input type="password" placeholder="Password" required/>
                 </div>
                 <div className="remenber-forgot">
-                    <label><input type="checkbox"/>Remenber me</label>
+                    <label><input type="checkbox"/>Remember me</label>
                     <a href="#">Forgot password?</a>
                 </div>
                 <button type="submit">Login</button>
 
                 <div className="register-link">
-                    <p> Dont have an account? <a href="#">Rgister</a></p>
+                    <p> Dont have an account? <a href="#">Register</a></p>
 
                 </div>
             </form>
