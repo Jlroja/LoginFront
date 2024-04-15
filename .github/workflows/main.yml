@@ -1,0 +1,29 @@
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: my-react-app
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build the Docker container
+      run: docker build . --file Dockerfile.testing -t my-node-app
+
+    - name: Run npm test
+      run: docker run my-node-app npm run test -- --run
+
+    - name: Push changes
+      if: success() 
+      run: echo "Tests passed. Pushing to main."
